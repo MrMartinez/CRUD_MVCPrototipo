@@ -1,4 +1,4 @@
-@model MVCPrototipo.Models.Instructor
+@model MVCPrototipo.DTOs.InstructorDTO
 
 @{
     ViewData["Title"] = "Edit";
@@ -24,9 +24,11 @@
                 <span asp-validation-for="Apellidos" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Grado" class="control-label"></label>
-                <input asp-for="Grado" class="form-control" />
-                <span asp-validation-for="Grado" class="text-danger"></span>
+                <label asp-for="GradoId" class="control-label"></label>
+                @*Igual que en el create cambio a usar una lista de grados
+                    <input asp-for="Grado" class="form-control" />*@
+                @Html.DropDownList("GradoID", (SelectList)ViewBag.Grados, null, htmlAttributes: new { @class = "form-control" })
+                <span asp-validation-for="GradoId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="FotoPerfil" class="control-label"></label>
